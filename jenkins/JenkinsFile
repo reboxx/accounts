@@ -9,7 +9,6 @@ pipeline{
             }
         }
 
-
         stage("cloning"){
             steps{
                 sh "git clone https://github.com/reboxx/accountservice.git"      
