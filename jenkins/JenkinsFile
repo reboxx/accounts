@@ -1,5 +1,5 @@
 pipeline{
-    agent any
+    agen any
     stages{
 
         stage("start"){
@@ -9,24 +9,30 @@ pipeline{
             }
         }
 
-
+        stage("cloning"){
+            steps{
+                sh "git clone https://github.com/reboxx/accountservice.git"      
+            }
+        }
 
         stage("maven build"){
             steps{
-                    dir("accounts"){
+                dir("accountservice"){
+                    dir("accountservice"){
                         sh "mvn clean install"
                     }
-                
+                }
             }
         }
 
         stage("maven test"){
             steps{
-                 dir("accounts"){
+                dir("accountservice"){
+                                        dir("accountservice"){
 
                     sh "mvn test"
+                                        }
                 }
-                
             }
         }
 
